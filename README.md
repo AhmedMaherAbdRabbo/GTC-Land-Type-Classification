@@ -56,6 +56,13 @@ Accurate land type classification is essential for various applications
 ## Team Information
 
 This project is being developed as part of the GTC internship program by the ML Team.
+### Team Members
+- Ahmed Maher
+- Roaa Ahmed
+- Rowan Mohamed
+- Alaa Ramadan
+- Hamza Abdelsalam
+
 
 ## License
 
