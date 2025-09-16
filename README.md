@@ -62,6 +62,7 @@ This project is being developed as part of the GTC internship program by the ML 
 - Rowan Mohamed
 - Alaa Ramadan
 - Hamza Abdelsalam
+- Omnia Mohamed
 
 
 ## License
