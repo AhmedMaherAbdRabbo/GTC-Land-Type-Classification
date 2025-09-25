@@ -25,18 +25,25 @@ BY:Roaa Ahmed
 🔎 What We Did
  • ✔ Class Distribution
  • Explored dataset balance across the 10 EuroSAT land cover classes.
+ 
  • ✔ Sample Visualization
  • Displayed random satellite images from each land cover category.
+ 
  • ✔ Pixel Intensity Analysis
  • Plotted RGB histograms to study pixel value distributions and color patterns.
+ 
  • ✔ Data Augmentation Check
  • Compared original vs augmented images to verify preprocessing.
+ 
  • ✔ Dataset Statistics
  • Computed mean & standard deviation per channel for normalization.
+ 
  • ✔ Class Balance (Pie Chart)
  • Created pie charts for a more intuitive view of dataset balance.
+ 
  • ✔ Variability Analysis
  • Showed diversity of samples within the same class (e.g., different “River” images).
+ 
  • ✔ Class Similarity Heatmap
  • Built a heatmap based on mean RGB values to analyze similarities between land cover types.
 
