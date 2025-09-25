@@ -18,16 +18,44 @@ Accurate land type classification is essential for various applications such as 
 * Checked dataset integrity, ensuring proper labeling of land cover classes.
 * Prepared the dataset for preprocessing and modeling stages.
 
-### 2. Exploratory Data Analysis (EDA) + Feature Building (Phase 2 – Ongoing)
+###  Phase 2: Exploratory Data Analysis (EDA) & Feature Building
+BY:Roaa Ahmed
+📊 Exploratory Data Analysis (EDA) & Feature Engineering
 
-* Preprocess images through resizing and normalizing spectral bands.
-* Analyzed class distribution across EuroSAT dataset (e.g., Forest, River, Highway, Residential).
-* Implemented advanced augmentation techniques to improve model generalization:
+🔎 What We Did
+ • ✔ Class Distribution
+ • Explored dataset balance across the 10 EuroSAT land cover classes.
+ • ✔ Sample Visualization
+ • Displayed random satellite images from each land cover category.
+ • ✔ Pixel Intensity Analysis
+ • Plotted RGB histograms to study pixel value distributions and color patterns.
+ • ✔ Data Augmentation Check
+ • Compared original vs augmented images to verify preprocessing.
+ • ✔ Dataset Statistics
+ • Computed mean & standard deviation per channel for normalization.
+ • ✔ Class Balance (Pie Chart)
+ • Created pie charts for a more intuitive view of dataset balance.
+ • ✔ Variability Analysis
+ • Showed diversity of samples within the same class (e.g., different “River” images).
+ • ✔ Class Similarity Heatmap
+ • Built a heatmap based on mean RGB values to analyze similarities between land cover types.
 
-  * Random flips (horizontal/vertical)
-  * Random brightness/contrast adjustments
-  * Random rotations
-* Visualized dataset samples before and after augmentation to validate preprocessing.
+⸻
+
+🎯 Why This Matters
+
+This structured analysis allows us to:
+ • Understand dataset balance and diversity.
+ • Identify potential challenges like class overlap or similar visual patterns.
+ • Apply feature engineering (augmentation + normalization) to improve model robustness before training.
+
+⸻
+
+📈 Insights & Observations
+ • The dataset is balanced, reducing the risk of bias.
+ • Some classes (e.g., Forest vs HerbaceousVegetation) share similar color profiles, which may cause misclassification.
+ • Data augmentation improves generalization by simulating real-world variations.
+ • Normalization with computed channel means/stds ensures stable training.
 
 ### 3. Model Training & Validation (Next Phase)
 
