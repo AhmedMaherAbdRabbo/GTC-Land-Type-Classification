@@ -19,10 +19,13 @@ Accurate land type classification is essential for various applications such as 
 * Prepared the dataset for preprocessing and modeling stages.
 
 ###  Phase 2: Exploratory Data Analysis (EDA) & Feature Building
+
 BY:Roaa Ahmed
+
 📊 Exploratory Data Analysis (EDA) & Feature Engineering
 
 🔎 What We Did
+
  • ✔ Class Distribution
  • Explored dataset balance across the 10 EuroSAT land cover classes.
  
