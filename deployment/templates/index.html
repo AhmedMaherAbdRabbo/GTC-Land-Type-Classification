@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Land Classification - AI-Powered Image Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta name="description" content="AI-powered satellite image analysis for accurate land type classification using deep learning">
+    <meta name="keywords" content="satellite imagery, land classification, AI, machine learning, remote sensing">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-satellite"></i>
+                    <h1>Satellite Land Classification</h1>
+                </div>
+                <p class="subtitle">AI-Powered Satellite Image Analysis for Land Type Classification</p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <i class="fas fa-brain"></i>
+                        <span>VGG16 Neural Network</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-globe"></i>
+                        <span>10 Land Types</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bg"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="upload-section">
+                <div class="upload-card">
+                    <div class="upload-header">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h2>Upload Satellite Image</h2>
+                        <p>Drag & drop your satellite image or click to browse</p>
+                    </div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-placeholder">
+                            <i class="fas fa-image"></i>
+                            <p>Choose a satellite image to analyze</p>
+                            <span class="file-types">Supported: JPG, PNG, JPEG (Max: 10MB)</span>
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                    </div>
+                    
+                    <div class="upload-actions">
+                        <button id="browseBtn" class="btn-secondary">
+                            <i class="fas fa-folder-open"></i>
+                            Browse Files
+                        </button>
+                        <button id="uploadBtn" class="btn-primary" disabled>
+                            <i class="fas fa-magic"></i>
+                            Analyze Image
+                        </button>
+                        <button id="resetBtn" class="btn-secondary" style="display: none;">
+                            <i class="fas fa-refresh"></i>
+                            Reset
+                        </button>
+                    </div>
+                    
+                    <div class="progress-container" id="progressContainer" style="display: none;">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2><i class="fas fa-chart-bar"></i> Classification Results</h2>
+                    <div class="results-actions">
+                        <button id="downloadBtn" class="btn-outline">
+                            <i class="fas fa-download"></i>
+                            Download Report
+                        </button>
+                        <button id="shareBtn" class="btn-outline">
+                            <i class="fas fa-share"></i>
+                            Share Results
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="results-grid">
+                    <!-- Image Display -->
+                    <div class="image-display">
+                        <div class="image-container">
+                            <img id="uploadedImage" alt="Uploaded satellite image">
+                            <div class="image-overlay">
+                                <div class="prediction-badge">
+                                    <i class="fas fa-eye"></i>
+                                    <span id="mainPrediction">Analyzing...</span>
+                                </div>
+                                <div class="image-info">
+                                    <span id="imageSize">Size: --</span>
+                                    <span id="processingTime">Time: --</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prediction Results -->
+                    <div class="prediction-panel">
+                        <h3><i class="fas fa-chart-line"></i> AI Analysis</h3>
+                        
+                        <div class="main-prediction">
+                            <div class="prediction-header">
+                                <h4>Primary Classification</h4>
+                                <div class="confidence-badge" id="confidenceBadge">0%</div>
+                            </div>
+                            <div class="prediction-details">
+                                <h5 id="predictedClass">Unknown</h5>
+                                <p id="classDescription">Description will appear here...</p>
+                            </div>
+                            <div class="prediction-metrics">
+                                <div class="metric">
+                                    <label>Confidence Level</label>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill" id="confidenceBar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="all-predictions">
+                            <div class="predictions-header">
+                                <h4>All Classifications</h4>
+                                <button class="toggle-btn" id="togglePredictions">
+                                    <i class="fas fa-eye"></i>
+                                    Show All
+                                </button>
+                            </div>
+                            <div id="predictionsList" class="predictions-list">
+                                <!-- Predictions will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="loading-overlay" id="loadingOverlay">
+                <div class="loading-content">
+                    <div class="loading-animation">
+                        <div class="loading-spinner"></div>
+                        <div class="loading-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                    <h3>Analyzing Satellite Image...</h3>
+                    <p id="loadingStatus">AI is processing your image for land classification</p>
+                    <div class="loading-steps">
+                        <div class="step active" id="step1">
+                            <i class="fas fa-upload"></i>
+                            <span>Uploading</span>
+                        </div>
+                        <div class="step" id="step2">
+                            <i class="fas fa-cogs"></i>
+                            <span>Processing</span>
+                        </div>
+                        <div class="step" id="step3">
+                            <i class="fas fa-brain"></i>
+                            <span>AI Analysis</span>
+                        </div>
+                        <div class="step" id="step4">
+                            <i class="fas fa-check"></i>
+                            <span>Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section class="land-types-section">
+            <div class="section-header">
+                <h2><i class="fas fa-map"></i> Supported Land Types</h2>
+                <p>Our AI can identify 10 different types of land cover from satellite imagery</p>
+            </div>
+            
+            <div class="land-types-grid">
+                <div class="land-type-card" data-type="annual-crop">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Annual Crop</h3>
+                    <p>Agricultural land for seasonal crops</p>
+                </div>
+                
+                <div class="land-type-card" data-type="forest">
+                    <div class="card-icon">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3>Forest</h3>
+                    <p>Dense woodland and tree coverage</p>
+                </div>
+                
+                <div class="land-type-card" data-type="herbaceous">
+                    <div class="card-icon">
+                        <i class="fas fa-grass"></i>
+                    </div>
+                    <h3>Herbaceous Vegetation</h3>
+                    <p>Grasslands and non-woody plants</p>
+                </div>
+                
+                <div class="land-type-card" data-type="highway">
+                    <div class="card-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Highway</h3>
+                    <p>Major roads and transportation</p>
+                </div>
+                
+                <div class="land-type-card" data-type="industrial">
+                    <div class="card-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Industrial</h3>
+                    <p>Manufacturing and industrial areas</p>
+                </div>
+                
+                <div class="land-type-card" data-type="pasture">
+                    <div class="card-icon">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3>Pasture</h3>
+                    <p>Grazing land for livestock</p>
+                </div>
+                
+                <div class="land-type-card" data-type="permanent-crop">
+                    <div class="card-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Permanent Crop</h3>
+                    <p>Orchards and long-term crops</p>
+                </div>
+                
+                <div class="land-type-card" data-type="residential">
+                    <div class="card-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Residential</h3>
+                    <p>Housing and urban areas</p>
+                </div>
+                
+                <div class="land-type-card" data-type="river">
+                    <div class="card-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>River</h3>
+                    <p>Flowing water bodies</p>
+                </div>
+                
+                <div class="land-type-card" data-type="sea-lake">
+                    <div class="card-icon">
+                        <i class="fas fa-waves"></i>
+                    </div>
+                    <h3>Sea / Lake</h3>
+                    <p>Large water bodies</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="info-section">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="card-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>Advanced AI Technology</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Powered by VGG16 deep neural network trained on thousands of satellite images from the EuroSAT dataset</p>
+                        <ul>
+                            <li>Transfer learning from ImageNet</li>
+                            <li>Fine-tuned for satellite imagery</li>
+                            <li>Robust feature extraction</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <i class="fas fa-globe"></i>
+                        <h3>Comprehensive Coverage</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Accurately classifies 10 different land cover types across diverse geographical regions</p>
+                        <ul>
+                            <li>Agricultural areas</li>
+                            <li>Urban environments</li>
+                            <li>Natural landscapes</li>
+                            <li>Water bodies</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>High Performance</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Achieves High accuracy with detailed confidence scores and probability distributions</p>
+                        <ul>
+                            <li>Fast processing times</li>
+                            <li>Reliable predictions</li>
+                            <li>Detailed analytics</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
