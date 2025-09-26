@@ -132,27 +132,27 @@ GTC-Land-Type-Classification/
 
 ## 🔬 Methodology
 
-### Phase 1: Data Preparation
+### Phase 1: Data Preparation (Rowan Mohamed)
 - **Dataset Collection**: EuroSAT dataset integration via TensorFlow Datasets
 - **Data Verification**: Comprehensive integrity checks and class validation
 - **Preprocessing Pipeline**: Image resizing, normalization, and quality assurance
 - **Train/Validation Split**: Strategic 80/20 split for robust evaluation
 
-### Phase 2: EDA & Feature Engineering
+### Phase 2: EDA & Feature Engineering (Roaa Ahmed)
 - **Class Distribution Analysis**: Balanced dataset verification across all classes
 - **Pixel Intensity Studies**: RGB histogram analysis for spectral patterns
 - **Data Augmentation**: Advanced techniques including flips, brightness, and contrast adjustments
 - **Statistical Analysis**: Channel-wise mean/std computation for normalization
 - **Similarity Assessment**: Cross-class RGB correlation heatmaps
 
-### Phase 3: Model Development
+### Phase 3: Model Development (Alaa Ramadan)
 - **Baseline CNN**: Custom architecture for performance benchmarking
 - **Transfer Learning**: VGG16 fine-tuning with custom classification layers  
 - **Hyperparameter Optimization**: Learning rate, batch size, and epoch tuning
 - **Performance Evaluation**: Comprehensive metrics including confusion matrices
 - **Model Selection**: Best model identification based on accuracy and generalization
 
-### Phase 4: Deployment
+### Phase 4: Deployment, Presentation and Demo (Hamza Abdelsalam , Omnia Mohamed , Ahmed Maher)
 - **Flask API Development**: RESTful endpoints for model serving
 - **Web Interface**: User-friendly upload and prediction interface
 - **Real-time Processing**: Instant image classification with confidence scores
@@ -200,11 +200,11 @@ This project was developed as part of the **GTC Internship Program** by a dedica
 | Name | GitHub | LinkedIn |
 |-------------|------|-----------|
 | **Ahmed Maher** | [@AhmedMaherAbdRabbo](https://github.com/AhmedMaherAbdRabbo) | [LinkedIn](https://www.linkedin.com/in/ahmed-maherr/) |
-| **Roaa Ahmed** | [GitHub](#) | [LinkedIn](#) |
-| **Hamza Abdelsalam** | [GitHub](#) | [LinkedIn](#) |
-| **Omnia Mohamed** | [GitHub](#) | [LinkedIn](#) |
-| **Alaa Ramadan** | [GitHub](#) | [LinkedIn](#) |
-| **Rowan Mohamed** | [GitHub](#) | [LinkedIn](#) |
+| **Roaa Ahmed** | [@Roaa27](https://github.com/Roaa27) | [LinkedIn](https://www.linkedin.com/in/roaa-ahmed-a760b0282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app) |
+| **Hamza Abdelsalam** | [@hamzabdelsalam](https://github.com/hamzabdelsalam) | [LinkedIn](https://www.linkedin.com/in/hamza-mohamed-867b12306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app) |
+| **Omnia Mohamed** | [@omniaghazy](https://github.com/omniaghazy) | [LinkedIn](https://www.linkedin.com/in/omnia-mohamed-ghazy-380388299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) |
+| **Alaa Ramadan** | [@AlaaRamadann](https://github.com/AlaaRamadann) | [LinkedIn](https://www.linkedin.com/in/alaa-ramadann) |
+| **Rowan Mohamed** | [@rowan122](https://github.com/rowan122) | [LinkedIn](http://www.linkedin.com/in/rowan-ibrahiem-ba7571277) |
 
 
 ## 🔬 Future Enhancements
