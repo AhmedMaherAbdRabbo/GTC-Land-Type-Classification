@@ -78,8 +78,8 @@ graph TD
 GTC-Land-Type-Classification/
 │
 ├── 📓 notebooks/
-│   ├── Landing_Type_Classification.ipynb
-│   └── Landing_Type_Classification.py
+│   ├── Land_Type_Classification_EDA_&_Modeling.ipynb
+│   └── Landing_Type_Classification.ipynb
 │
 │
 ├── 📊 data/                              # Dataset documentation
@@ -120,7 +120,6 @@ GTC-Land-Type-Classification/
 │
 ├── 📄 presentation/                      # Project presentation materials
 │   ├── GTC-Land-Type-Classification.pdf  
-│   ├── GTC-Land-Type-Classification.pptx 
 │   └── README.md                        
 │
 │
