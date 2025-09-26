@@ -88,6 +88,7 @@ GTC-Land-Type-Classification/
 │
 ├── 🧠 models/                            # Trained models
 │   ├── model_vgg16.keras               # Final VGG16 model
+│   ├── model_baseline.keras               # Final model_baseline model
 │   └── README.md
 │
 │
