@@ -27,18 +27,20 @@ The **EuroSAT** dataset is a public remote sensing dataset based on Sentinel-2 s
 | **Spectral bands**    | 13 (Sentinel-2 multispectral)       |
 | **Resolution**        | 10–60 m per pixel depending on band |
 
-**Classes include:**
+## 🏞️ Classes include:
 
-* Annual Crop
-* Forest
-* Herbaceous Vegetation
-* Highway
-* Industrial
-* Pasture
-* Permanent Crop
-* Residential
-* River
-* Sea / Lake
+| Class | Description | Use Cases |
+|-------|-------------|-----------|
+| **Annual Crop** | Seasonal agricultural areas | Crop monitoring, yield prediction |
+| **Forest** | Dense woodland areas | Deforestation tracking, carbon monitoring |
+| **Herbaceous Vegetation** | Grasslands and meadows | Pasture management, biodiversity studies |
+| **Highway** | Major transportation routes | Infrastructure planning, traffic analysis |
+| **Industrial** | Manufacturing and industrial zones | Urban development, pollution monitoring |
+| **Pasture** | Livestock grazing areas | Agricultural planning, land use optimization |
+| **Permanent Crop** | Orchards and vineyards | Specialized agriculture monitoring |
+| **Residential** | Urban housing areas | Urban growth analysis, population studies |
+| **River** | Freshwater bodies | Water resource management, flood monitoring |
+| **Sea Lake** | Large water bodies | Coastal monitoring, water level tracking |
 
 ---
 
