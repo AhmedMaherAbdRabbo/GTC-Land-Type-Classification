@@ -122,6 +122,8 @@ GTC-Land-Type-Classification/
 │   ├── GTC-Land-Type-Classification.pdf  
 │   └── README.md                        
 │
+├── 🎥 demo/                             # Live demonstration video
+│   └── README.md                        
 │
 ├── README.md
 ├── requirements.txt
